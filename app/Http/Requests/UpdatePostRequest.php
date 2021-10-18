@@ -11,10 +11,7 @@ class UpdatePostRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
-    {
-        return true;
-    }
+  
 
     /**
      * Get the validation rules that apply to the request.
@@ -23,9 +20,14 @@ class UpdatePostRequest extends FormRequest
      */
     public function rules()
     {
-       
+            // $rules = Post::getFacadeRoot()->rules;
             $rules = Post::$rules;
+           
             return $rules;
      
+    }
+    public function authorize()
+    {
+        return true;
     }
 }

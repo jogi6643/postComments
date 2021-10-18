@@ -9,6 +9,7 @@ use DB;
 use Response;
 use Flash;
 Use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\UpdatePostRequest;
 class PostsController extends Controller
 {
     public function __construct()
@@ -90,9 +91,10 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id,UpdatePostRequest $request)
     {
-        //
+        $post = Post::find($id)->update(['title'=>$request->title,'slug'=>\Str::slug($request->title)]);
+        return redirect(route('posts.index'));
     }
 
     /**
@@ -103,6 +105,8 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        dd($id);
+        $post = Post::find( $id );
+        $post->delete();
+        return redirect(route('posts.index'));
     }
 }

@@ -13,7 +13,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-// Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 // Route::get('/post', [PostController::class, 'create'])->name('post.create');
 // Route::post('/post', [PostController::class, 'store'])->name('post.store');
 // Route::get('/post/{id}', [PostController::class, 'edit'])->name('post.edit');

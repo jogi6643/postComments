@@ -12,7 +12,8 @@
                     @error('title')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
-                    <form method="patch" action="{{ route('posts.update', ['id' => $post->id,'post' => $post]) }}">
+                    <form method="post" action="{{ route('posts.update', ['post' => $post]) }}">
+                     @method('PATCH')
                         <div class="form-group">
                             @csrf
                             <label class="label">Post Title: </label>

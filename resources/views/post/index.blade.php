@@ -26,7 +26,9 @@
                         <a href="{{ route('posts.edit',$post->id) }}" class="btn btn-sm btn-outline-danger py-0" style="font-size: 0.8em;">Edit</a>
                     </td>
                     <td>
-                    <form method="delete" action="#">
+                    <form method="post" action="{{ route('posts.destroy', ['post' => $post]) }}">
+                     @method('DELETE')
+                     @csrf
                         <input type="submit" class="btn btn-sm btn-outline-danger py-0" style="font-size: 0.8em;" value="Delete" />
                     </form>
                     </td>
